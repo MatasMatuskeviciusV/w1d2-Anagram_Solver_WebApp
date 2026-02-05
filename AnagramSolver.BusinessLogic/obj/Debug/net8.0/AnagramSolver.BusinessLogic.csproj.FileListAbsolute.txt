@@ -1,0 +1,15 @@
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\bin\Debug\net8.0\AnagramSolver.BusinessLogic.deps.json
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\bin\Debug\net8.0\AnagramSolver.BusinessLogic.dll
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\bin\Debug\net8.0\AnagramSolver.BusinessLogic.pdb
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\bin\Debug\net8.0\AnagramSolver.Contracts.dll
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\bin\Debug\net8.0\AnagramSolver.Contracts.pdb
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\AnagramSolver.BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\AnagramSolver.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\AnagramSolver.BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\AnagramSolver.BusinessLogic.AssemblyInfo.cs
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\AnagramSolver.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\AnagramS.4022F06B.Up2Date
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\AnagramSolver.BusinessLogic.dll
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\refint\AnagramSolver.BusinessLogic.dll
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\AnagramSolver.BusinessLogic.pdb
+C:\Users\matas.matuskevicius\source\repos\Anagram_2.3\AnagramSolver\AnagramSolver.BusinessLogic\obj\Debug\net8.0\ref\AnagramSolver.BusinessLogic.dll

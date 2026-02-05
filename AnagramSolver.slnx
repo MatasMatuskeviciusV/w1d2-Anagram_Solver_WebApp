@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="AnagramSolver.BusinessLogic/AnagramSolver.BusinessLogic.csproj" />
+  <Project Path="AnagramSolver.Cli/AnagramSolver.Cli.csproj" />
+  <Project Path="AnagramSolver.Contracts/AnagramSolver.Contracts.csproj" />
+</Solution>

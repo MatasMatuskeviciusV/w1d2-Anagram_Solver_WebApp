@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "AnagramSolver.BusinessLogic/1.0.0": {
+        "dependencies": {
+          "AnagramSolver.Contracts": "1.0.0"
+        },
+        "runtime": {
+          "AnagramSolver.BusinessLogic.dll": {}
+        }
+      },
+      "AnagramSolver.Contracts/1.0.0": {
+        "runtime": {
+          "AnagramSolver.Contracts.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AnagramSolver.BusinessLogic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AnagramSolver.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
