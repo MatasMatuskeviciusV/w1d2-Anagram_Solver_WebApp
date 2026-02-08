@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AnagramSolver.Contracts;
+using AnagramSolver.BusinessLogic;
 using AnagramSolver.WebApp.Models;
 
 namespace AnagramSolver.WebApp.Controllers
@@ -7,11 +8,13 @@ namespace AnagramSolver.WebApp.Controllers
     public class WordsController : Controller
     {
         private readonly IWordRepository _repo;
+        private readonly UserProcessor _userProcessor;
         private int PageSize = 100;
 
-        public WordsController(IWordRepository repo)
+        public WordsController(IWordRepository repo, UserProcessor userProcessor)
         {
             _repo = repo;
+            _userProcessor = userProcessor;
         }
 
         public async Task<IActionResult> Index(int page = 1)
@@ -43,6 +46,33 @@ namespace AnagramSolver.WebApp.Controllers
             };
 
             return View(model);
+        }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(string word, CancellationToken ct)
+        {
+            if (string.IsNullOrWhiteSpace(word))
+            {
+                ViewBag.Error = "Neįvestas žodis.";
+                return View();
+            }
+
+            if (!_userProcessor.IsValid(word)){
+                ViewBag.Error = "Įvestas per trumpas žodis.";
+                ViewBag.Word = word;
+                return View();
+            }
+
+            var result = await _repo.AddWordAsync(word, ct);
+            ViewBag.Result = result;
+            ViewBag.Word = word;
+
+            return View();
         }
     }
 }

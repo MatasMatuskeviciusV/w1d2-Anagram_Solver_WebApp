@@ -1,0 +1,22 @@
+﻿@using AnagramSolver.Contracts
+@{
+    ViewData["Title"] = "Pridėti žodį";
+    AddWordResult? result = ViewBag.Result as AddWordResult?;
+}
+
+<h2>Pridėti žodį</h2>
+
+<form asp-action="Add" method="post">
+    <input name="word" placeholder="Įveskite žodį" />
+    <button type="submit">Pridėti</button>
+</form>
+
+@if(ViewBag.Error != null)
+{
+    <p>@ViewBag.Error</p>
+}
+
+@if(result is not null)
+{
+    <p>Rezultatas: @result</p>
+}

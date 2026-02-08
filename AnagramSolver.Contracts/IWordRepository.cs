@@ -9,5 +9,13 @@ namespace AnagramSolver.Contracts
     public interface IWordRepository
     {
         Task<IEnumerable<string>> GetAllWordsAsync(CancellationToken ct = default);
+        Task<AddWordResult> AddWordAsync(string word, CancellationToken ct = default);
+    }
+
+    public enum AddWordResult
+    {
+        Added,
+        AlreadyExists,
+        Invalid
     }
 }
