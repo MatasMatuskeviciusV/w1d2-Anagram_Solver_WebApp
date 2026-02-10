@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AnagramSolver.Contracts;
+using System.Diagnostics;
 
 namespace AnagramSolver.WebApp.Controllers
 {
@@ -21,6 +22,8 @@ namespace AnagramSolver.WebApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<string>>> Get(int page = 1, int pageSize = 100)
         {
+            var sw = Stopwatch.StartNew();
+
             if (page < 1)
             {
                 page = 1;
@@ -34,6 +37,11 @@ namespace AnagramSolver.WebApp.Controllers
             var all = (await _repo.GetAllWordsAsync()).Select(w => (w ?? "").Trim()).Where(w => w.Length > 0).ToList();
 
             var items = all.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            sw.Stop();
+
+            Response.Headers.Append("X-Anagram-Count", all.Count().ToString());
+            Response.Headers.Append("X-Search-Duration-Ms", sw.ElapsedMilliseconds.ToString());
 
             return Ok(items);
         }

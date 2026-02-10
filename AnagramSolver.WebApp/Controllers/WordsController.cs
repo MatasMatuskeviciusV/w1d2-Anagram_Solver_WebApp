@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AnagramSolver.BusinessLogic;
 using AnagramSolver.Contracts;
-using AnagramSolver.BusinessLogic;
 using AnagramSolver.WebApp.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace AnagramSolver.WebApp.Controllers
 {
@@ -73,6 +74,26 @@ namespace AnagramSolver.WebApp.Controllers
             ViewBag.Word = word;
 
             return View();
+        }
+
+        public IActionResult History()
+        {
+            const string key = "searchHistory";
+
+            var json = HttpContext.Session.GetString(key);
+
+            List<string> history;
+
+            if (string.IsNullOrEmpty(json))
+            {
+                history = new List<string>();
+            }
+            else
+            {
+                history = JsonSerializer.Deserialize<List<string>>(json) ?? new List<string>();
+            }
+
+            return View(history);
         }
     }
 }

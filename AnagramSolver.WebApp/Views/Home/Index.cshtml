@@ -1,6 +1,9 @@
 ﻿@model AnagramSolver.WebApp.Models.AnagramViewModel
 
-<h2>Anagramų paieška</h2>
+<h2>Anagramų paieška </h2> @if (!string.IsNullOrWhiteSpace(ViewBag.LastSearch))
+{
+    <p>Paskutinė paieška: @ViewBag.LastSearch</p>
+}
 
 <form asp-controller="Home" asp-action="Index" asp-route-id="" method="get">
     <input type="text" name="id" value="@Model.Query" placeholder="Įveskite žodį" />
@@ -27,3 +30,19 @@ else if (!string.IsNullOrWhiteSpace(Model.Query))
     <p>Anagramų nerasta</p>
 }
 
+<script>
+    const key = `anagram_${Model.Query}`;
+    const cached = localStorage.getItem(key);
+
+    if (cached) {
+        displayResults(JSON.parse(cached));
+    } else {
+        fetch(`/api/anagrams/${Model.Query}`)
+            .then(r => r.json())
+            .then(data => {
+                localStorage.setItem(key, JSON.stringify(data));
+                displayResults(data);
+            });
+    }
+
+</script>

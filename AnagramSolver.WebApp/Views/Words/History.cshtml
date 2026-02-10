@@ -1,0 +1,19 @@
+﻿@model List<string>
+
+<h2>Paieškų istorija</h2>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>Istorija tuščia</p>
+}
+else
+{
+    <ul>
+        @foreach (var w in Model)
+        {
+            <li>
+                @w
+            </li>
+        }
+    </ul>
+}

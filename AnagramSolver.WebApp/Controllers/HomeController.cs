@@ -2,6 +2,7 @@
 using AnagramSolver.Contracts;
 using AnagramSolver.BusinessLogic;
 using AnagramSolver.WebApp.Models;
+using System.Text.Json;
 
 namespace AnagramSolver.WebApp.Controllers
 {
@@ -18,6 +19,17 @@ namespace AnagramSolver.WebApp.Controllers
 
         public async Task<IActionResult> Index(string? id, CancellationToken ct = default)
         {
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                Response.Cookies.Append("lastSearch", id, new CookieOptions
+                {
+                    Expires = DateTimeOffset.Now.AddDays(30)
+                });
+            }
+
+            var lastSearch = Request.Cookies["lastSearch"];
+            ViewBag.LastSearch = lastSearch;
+
             var model = new AnagramViewModel
             {
                 Query = id ?? "",
@@ -33,6 +45,29 @@ namespace AnagramSolver.WebApp.Controllers
             {
                 model.Error = "Įvestas per trumpas žodis.";
                 return View(model);
+            }
+
+            if(!string.IsNullOrWhiteSpace(id) && _userProcessor.IsValid(id))
+            {
+                const string shKey = "searchHistory";
+
+                var json = HttpContext.Session.GetString(shKey);
+
+                List<string> history;
+
+                if (string.IsNullOrEmpty(json))
+                {
+                    history = new List<string>();
+                }
+                else
+                {
+                    history = JsonSerializer.Deserialize<List<string>>(json) ?? new List<string>();
+                }
+
+                history.Remove(id);
+                history.Insert(0, id);
+
+                HttpContext.Session.SetString(shKey, JsonSerializer.Serialize(history));
             }
 
             var normalizer = new WordNormalizer();
